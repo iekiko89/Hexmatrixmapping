@@ -1,3 +1,5 @@
+#include "hextile.h"
+
 #include <Arduino.h>
 
 #include <WS2812Serial.h>
@@ -17,7 +19,7 @@
 
 CRGB leds[NUM_LEDS];
 //uint8_t brightness = BRIGHTNESS;
-
+Hexagon hex1(0,0,1);
 void setup() {
   Serial.begin(57600);
   Serial.println("resetting");
@@ -26,12 +28,21 @@ void setup() {
 
   //Clear the LED strip
   FastLED.clear();
+  //Hexagon(int q, int r,int hex_Number );
+
+  
 }
 
 void loop() {
   //FastLED.show();   // Show the next frame of the LED pattern
   //delay(10);        // Slow down the animation slightly
   fill_solid( leds, NUM_LEDS, CRGB(50,0,200));
+  Serial.println("green");
   FastLED.show();
-  delay(500);
+  delay(1000);
+
+  hex1.fill_hexagon(leds,CRGB(0,255,0) );
+  Serial.println("one red");
+  FastLED.show();
+  delay(1000);
 }
