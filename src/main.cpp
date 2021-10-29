@@ -20,29 +20,43 @@
 CRGB leds[NUM_LEDS];
 //uint8_t brightness = BRIGHTNESS;
 Hexagon hex1(0,0,1);
+Hexagon hex2(1,1,2);
 void setup() {
   Serial.begin(57600);
   Serial.println("resetting");
   LEDS.addLeds<WS2812SERIAL,DATA_PIN,RGB>(leds,NUM_LEDS);
   LEDS.setBrightness(BRIGHTNESS);
-
+  Hexagon hex1(0,0,1);
+  Hexagon hex2(2,2,2);
+  //Serial.println(hex1.leds_per_hexagon);
+  //Serial.println(hex1.leds_per_hexagon);
+  //Serial.println(hex2.hex_End_Led);
+  //Serial.println(hex1.hex_End_Led);
   //Clear the LED strip
   FastLED.clear();
-  //Hexagon(int q, int r,int hex_Number );
 
-  
 }
 
 void loop() {
   //FastLED.show();   // Show the next frame of the LED pattern
   //delay(10);        // Slow down the animation slightly
   fill_solid( leds, NUM_LEDS, CRGB(50,0,200));
-  Serial.println("green");
+
   FastLED.show();
   delay(1000);
 
-  hex1.fill_hexagon(leds,CRGB(230,191,216) );
-  Serial.println("one red");
+  hex1.fill_hexagon(leds,CRGB(255,0,0) );
+
   FastLED.show();
   delay(1000);
+  hex2.fill_hexagon(leds,CRGB(57,75,23) );
+
+  FastLED.show();
+  delay(1000);
+
+  Serial.println(hex1.leds_per_hexagon);
+  Serial.println(hex1.leds_per_hexagon);
+  Serial.println(hex2.hex_End_Led);
+  Serial.println(hex1.hex_End_Led);
+
 }
