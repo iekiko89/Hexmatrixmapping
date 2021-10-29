@@ -12,7 +12,7 @@
 //   Teensy 4.1:  1, 8, 14, 17, 20, 24, 29, 35, 47, 53
 //standard boilerplate for my LED codes
 #define DATA_PIN             14         // Output pin for LEDs [5]
-#define COLOR_ORDER         GRB         // Color order of LED string [GRB]
+#define COLOR_ORDER         BRG         // Color order of LED string [GRB]
 #define CHIPSET             WS2812B     // LED string type [WS2182B]
 #define BRIGHTNESS          96          // Overall brightness [50]
 #define NUM_LEDS 192                    // There are 25 LEDs on this strand
@@ -21,17 +21,14 @@ CRGB leds[NUM_LEDS];
 //uint8_t brightness = BRIGHTNESS;
 Hexagon hex1(0,0,1);
 Hexagon hex2(1,1,2);
+int hue=0;
 void setup() {
+
   Serial.begin(57600);
   Serial.println("resetting");
   LEDS.addLeds<WS2812SERIAL,DATA_PIN,RGB>(leds,NUM_LEDS);
   LEDS.setBrightness(BRIGHTNESS);
-  Hexagon hex1(0,0,1);
-  Hexagon hex2(2,2,2);
-  //Serial.println(hex1.leds_per_hexagon);
-  //Serial.println(hex1.leds_per_hexagon);
-  //Serial.println(hex2.hex_End_Led);
-  //Serial.println(hex1.hex_End_Led);
+
   //Clear the LED strip
   FastLED.clear();
 
@@ -40,23 +37,20 @@ void setup() {
 void loop() {
   //FastLED.show();   // Show the next frame of the LED pattern
   //delay(10);        // Slow down the animation slightly
-  fill_solid( leds, NUM_LEDS, CRGB(50,0,200));
+  //fill_solid( leds, NUM_LEDS, CRGB::Green);
+  //FastLED.show();
+  //delay(500);
+
+  hex1.fill_hexagon(leds,CHSV( hue, 255, 255) );
+  hue+=32;
+
 
   FastLED.show();
-  delay(1000);
+  delay(500);
 
-  hex1.fill_hexagon(leds,CRGB(255,0,0) );
-
+  hex2.fill_hexagon(leds,CHSV( hue, 255, 255) );
+  hue+=16;
   FastLED.show();
-  delay(1000);
-  hex2.fill_hexagon(leds,CRGB(57,75,23) );
-
-  FastLED.show();
-  delay(1000);
-
-  Serial.println(hex1.leds_per_hexagon);
-  Serial.println(hex1.leds_per_hexagon);
-  Serial.println(hex2.hex_End_Led);
-  Serial.println(hex1.hex_End_Led);
-
+  delay(500);
+ 
 }
