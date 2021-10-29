@@ -41,7 +41,7 @@ void loop() {
   FastLED.show();
   delay(1000);
 
-  hex1.fill_hexagon(leds,CRGB(0,255,0) );
+  hex1.fill_hexagon(leds,CRGB(230,191,216) );
   Serial.println("one red");
   FastLED.show();
   delay(1000);
