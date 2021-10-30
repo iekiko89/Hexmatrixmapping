@@ -2,7 +2,7 @@
 library/class to manipulate Hexagon led matrices
 
 video example of how hexagon_fill works
-![](https://i.imgur.com/tAJT2vh.mp4)
+![video](https://i.imgur.com/tAJT2vh.mp4)
 
 hexagon grid
 ![image](https://user-images.githubusercontent.com/59753813/139522458-f6a40fdb-ccfd-4e3c-9bca-c0abe4f80ed3.png)
