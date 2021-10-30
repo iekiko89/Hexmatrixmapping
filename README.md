@@ -2,7 +2,7 @@
 library/class to manipulate Hexagon led matrices
 
 video example of how hexagon_fill works
-<blockquote class="imgur-embed-pub" lang="en" data-id="a/6NTTGX4"  ><a href="//imgur.com/a/6NTTGX4">Hexagon solid fill</a></blockquote><script async src="//s.imgur.com/min/embed.js" charset="utf-8"></script>
+https://i.imgur.com/tAJT2vh.mp4
 
 hexagon grid
 ![image](https://user-images.githubusercontent.com/59753813/139522458-f6a40fdb-ccfd-4e3c-9bca-c0abe4f80ed3.png)
