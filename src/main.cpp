@@ -12,16 +12,19 @@
 //   Teensy 4.1:  1, 8, 14, 17, 20, 24, 29, 35, 47, 53
 //standard boilerplate for my LED codes
 #define DATA_PIN             14         // Output pin for LEDs [5]
-#define COLOR_ORDER         BRG         // Color order of LED string [GRB]
+#define COLOR_ORDER         BRG         // Color order of LED string [BRG ]
 #define CHIPSET             WS2812B     // LED string type [WS2182B]
 #define BRIGHTNESS          96          // Overall brightness [50]
 #define NUM_LEDS 192                    // There are 25 LEDs on this strand
 
 CRGB leds[NUM_LEDS];
 //uint8_t brightness = BRIGHTNESS;
-Hexagon hex1(0,0,1);
-Hexagon hex2(1,1,2);
+Hexagon hex1(1,-1,1,2);
+Hexagon hex2(1,0,2,2);
 int hue=0;
+
+
+
 void setup() {
 
   Serial.begin(57600);
@@ -52,5 +55,6 @@ void loop() {
   hue+=16;
   FastLED.show();
   delay(500);
- 
+
+  
 }
