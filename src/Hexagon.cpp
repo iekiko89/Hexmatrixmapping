@@ -1,4 +1,4 @@
-#include "hextile.h"
+#include "Hexagon.h"
 #include <FastLED.h>
 
 Hexagon::Hexagon(int qin=0, int rin=0, int hex_Numberin=0, int total_Hexagonsin=0){
@@ -13,8 +13,8 @@ Hexagon::Hexagon(int qin=0, int rin=0, int hex_Numberin=0, int total_Hexagonsin=
     hex_End_Led=hex_Start_Led+leds_per_hexagon;
     total_Leds=96*total_Hexagons;
     //q is even then then are the x and y delta can be used to set x, y span for even q
-    if(q%2==0){Xmin=dx_qe*q;Ymin=dy_q*r;}
-    else{Xmin=dx_qo*q; Ymin=dy_q*r+4;}
+    if(q%2==0){Xmin=dx_q*q;Ymin=dy_q*r;}
+    else{Xmin=dx_q*q; Ymin=dy_q*r+4;}
     Xmax=Xmin+hexagon_Width;
     Ymax=Ymin+hexagon_Height;
 

@@ -1,4 +1,4 @@
-#include "hextile.h"
+#include "Hexagon.h"
 
 #include <Arduino.h>
 
@@ -20,7 +20,7 @@
 CRGB leds[NUM_LEDS];
 //uint8_t brightness = BRIGHTNESS;
 Hexagon hex1(1,-1,1,2);
-Hexagon hex2(1,0,2,2);
+Hexagon hex2(4,3,2,2);
 int hue=0;
 
 
@@ -55,6 +55,9 @@ void loop() {
   hue+=16;
   FastLED.show();
   delay(500);
-
+  Serial.println("Xmin");
+  Serial.println(hex2.Xmin);
+  Serial.println("Ymin");
+  Serial.println(hex2.Ymin);
   
 }
