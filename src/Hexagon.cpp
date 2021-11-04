@@ -1,5 +1,7 @@
 #include "Hexagon.h"
+#include "Draw.h"
 #include <FastLED.h>
+
 
 Hexagon::Hexagon(int qin=0, int rin=0, int hex_Numberin=0, int total_Hexagonsin=0){
     q=qin;
@@ -9,6 +11,7 @@ Hexagon::Hexagon(int qin=0, int rin=0, int hex_Numberin=0, int total_Hexagonsin=
     //definining the first led of the hexagon and the last led of the hexagon
     //first led index for hexagon
     hex_Start_Led=(hex_Number-1)*leds_per_hexagon;
+    
     //last led index for hexagon is hex_End_Led-1
     hex_End_Led=hex_Start_Led+leds_per_hexagon;
     total_Leds=96*total_Hexagons;
@@ -21,8 +24,12 @@ Hexagon::Hexagon(int qin=0, int rin=0, int hex_Numberin=0, int total_Hexagonsin=
     //hexaqgon safety pixel:hex_SP
     hex_S_P=total_Leds+1;
 
+
+
+
 }
 //creating a class function to a hexagon
+/*
 void Hexagon::fill_hexagon(struct CRGB * leds, const struct CRGB& color){
     //loops thru each led in the hexagon and sets  the color
     for(int i=hex_Start_Led; i<hex_End_Led;i++)
@@ -31,6 +38,7 @@ void Hexagon::fill_hexagon(struct CRGB * leds, const struct CRGB& color){
         leds[i]=color;
     }
 }
+*/
 int Hexagon::XY_Hex_Map(int x=0, int y=0){
 
     // need to figure this issue out later
@@ -56,4 +64,8 @@ int Hexagon::XY_Hex_Map(int x=0, int y=0){
   return j;
 }
 //void Hexagon::XY_Range
+
+
+
+        
 
