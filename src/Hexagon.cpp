@@ -60,8 +60,9 @@ int Hexagon::XY_Hex_Map(int x=0, int y=0){
 
   uint16_t i = (y * hexagon_Width)+x;  //kMatrixWidth) + x;
   uint16_t j = XYTable[i];
+  //add something about if j ==hex_S_P then fuck off
 
-  return j;
+  return j+leds_per_hexagon*(hex_Number-1);
 }
 //void Hexagon::XY_Range
 

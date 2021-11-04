@@ -30,6 +30,7 @@ Draw drew(1);
 
 int hue=0;
 int delay_t=250;
+//int delay_t=random(250, 500);
 int dhue=5;
 
 
@@ -64,21 +65,29 @@ void loop() {
   delay(delay_t);
   */
 
-  drew.fill_hexagon(hex1, leds,CHSV( hue, 255, BRIGHTNESS) );
-  hue+=dhue;
-
-
-
-  FastLED.show();
-  delay(delay_t);
-
-
-
-  drew.fill_hexagon(hex2, leds,CHSV( hue, 255, BRIGHTNESS) );
+  drew.circle_3_expanding(hex4, leds,CHSV( hue, 255, BRIGHTNESS) );
   hue+=dhue;
   FastLED.show();
-  delay(delay_t);
+  //EVERY_N_MILLISECONDS( delay_t ) { drew.fill_hexagon(hex1, leds,CHSV( hue, 255, BRIGHTNESS) );
+  //FastLED.show(); }hue+=dhue;
+  drew.circle_3_expanding(hex2, leds,CHSV( hue, 255, BRIGHTNESS) );
+  hue+=dhue;
+  FastLED.show();
 
+  EVERY_N_MILLISECONDS( delay_t *1.25) { drew.fill_hexagon(hex1, leds,CHSV( hue, 255, BRIGHTNESS) );
+  FastLED.show(); }hue+=dhue;
+  
+  EVERY_N_MILLISECONDS( delay_t*.88) { drew.fill_hexagon(hex3, leds,CHSV( hue, 255, BRIGHTNESS) ); 
+  FastLED.show();}hue+=dhue;
+  
+  EVERY_N_MILLISECONDS( delay_t*1.5) { drew.fill_hexagon(hex5, leds,CHSV( hue, 255, BRIGHTNESS) ); 
+  FastLED.show();
+  }
+  
+  //drew.fill_hexagon(hex2, leds,CHSV( hue, 255, BRIGHTNESS));
+  
+  FastLED.show();
+  /*
   drew.fill_hexagon(hex3, leds,CHSV( hue, 255, BRIGHTNESS) );
   hue+=dhue;
   FastLED.show();
@@ -93,6 +102,7 @@ void loop() {
   hue+=dhue;
   FastLED.show();
   delay(delay_t);
+  */
 
   Serial.println("Xmin");
   
